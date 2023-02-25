@@ -30,9 +30,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- end footer -->
-	
-	<!-- copyright -->
+¿¿
 	<div class="copyright">
 		<div class="container">
 			<div class="row">
@@ -49,5 +47,4 @@
 			</div>
 		</div>
 	</div>
-	<!-- end copyright -->
-</html>
+¿</html>

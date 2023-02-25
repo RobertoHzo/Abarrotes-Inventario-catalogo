@@ -1,10 +1,11 @@
 <?php
-include '../global/ConfigServer.php';
-include '../global/connection_DB.php';
+include_once '../global/ConfigServer.php';
+include_once '../global/connection_DB.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,19 +36,10 @@ include '../global/connection_DB.php';
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
-
-	
 </head>
+
 <body>
-	
-	<!--PreLoader-->
-    <!-- <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div> -->
-    <!--PreLoader Ends-->
-	
+
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
 		<div class="container">
@@ -70,7 +62,7 @@ include '../global/connection_DB.php';
 								<li><a href="Products.php">Productos</a></li>
 								<li><a href="about.php">Sobre Nosotros</a></li>
 								<li><a href="contact.php">Contacto</a></li>
-								<li>							
+								<li>
 								</li>
 							</ul>
 						</nav>
@@ -82,13 +74,13 @@ include '../global/connection_DB.php';
 		</div>
 	</div>
 	<!-- end header -->
-	
-	
+
+
 
 	<!-- home page slider -->
 	<div class="homepage-slider">
 		<!-- single home slider -->
-		<div  class="single-homepage-slider homepage-bg-1"> 
+		<div class="single-homepage-slider homepage-bg-1">
 			<div class="row">
 				<div class="container ">
 					<div class="col-lg-10 offset-lg-1 text-center">
@@ -132,8 +124,8 @@ include '../global/connection_DB.php';
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
-						<h3><span class="orange-text">Productos</span>  Nuevos</h3>
+					<div class="section-title">
+						<h3><span class="orange-text">Productos</span> Nuevos</h3>
 					</div>
 				</div>
 			</div>
@@ -141,82 +133,32 @@ include '../global/connection_DB.php';
 			<div class="row product-lists">
 				<!--phph  imagenes -->
 				<?php
-				$sql="SELECT *  FROM products_tbl ORDER BY datemod_prod DESC LIMIT 3";
+				$sql = "SELECT *  FROM products_tbl ORDER BY datemod_prod DESC LIMIT 3";
 				$QueryProductos = $pdo->prepare($sql);
 				$QueryProductos->execute();
-				$ProductosLista=$QueryProductos->fetchAll(PDO::FETCH_ASSOC);
+				$ProductosLista = $QueryProductos->fetchAll(PDO::FETCH_ASSOC);
 				?>
-				<?php foreach($ProductosLista as $producto) {
-					$numCat= $producto['category_id']; ?>
-															
-						<div class="col-lg-4 col-md-6 text-center <?php echo $numCat ?>"> 
-							<div class="single-product-item">
-								<div class="product-image">
-									<a ><img src="../imagenes/img_productos/<?php echo $producto['photo']; ?>" alt="<?php echo $producto['name_prod'] ?>"></a>
-								</div>
-								<h4><?php echo $producto['name_prod']; ?></h4>
-								<p class="product-price"><span>Por unidad</span> $ <?php echo $producto['saleprice']; ?> </p>
+				<?php foreach ($ProductosLista as $producto) {
+					$numCat = $producto['category_id']; ?>
+
+					<div class="col-lg-4 col-md-6 text-center <?php echo $numCat ?>">
+						<div class="single-product-item">
+							<div class="product-image">
+								<a><img src="../imagenes/img_productos/<?php echo $producto['photo']; ?>" alt="<?php echo $producto['name_prod'] ?>"></a>
 							</div>
-						</div>																			
-				<?php } ?>
-				
-			</div>
-		</div> 
-	</div>  
-
-	
-	<!-- end product section -->
-
-	<!-- logo carousel -->
-	<!-- <div class="logo-carousel-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/1.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/2.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/3.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/4.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/5.png" alt="">
+							<h4><?php echo $producto['name_prod']; ?></h4>
+							<p class="product-price"><span>Por unidad</span> $ <?php echo $producto['saleprice']; ?> </p>
 						</div>
 					</div>
-				</div>
+				<?php } ?>
+
 			</div>
 		</div>
-	</div> -->
-	<!-- end logo carousel -->
+	</div>
+	<?php include_once 'footer.php' ?>
 
-	<?php include 'footer.php' ?>
-	
-	<!-- jquery -->
-	<script src="assets/js/jquery-1.11.3.min.js"></script>
-	<!-- bootstrap -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- count down -->
-	<script src="assets/js/jquery.countdown.js"></script>
-	<!-- isotope -->
-	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-	<!-- waypoints -->
-	<script src="assets/js/waypoints.js"></script>
-	<!-- owl carousel -->
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<!-- magnific popup -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
-	<!-- mean menu -->
-	<script src="assets/js/jquery.meanmenu.min.js"></script>
-	<!-- sticker js -->
-	<script src="assets/js/sticker.js"></script>
-	<!-- main js -->
-	<script src="assets/js/main.js"></script>
+	<?php include_once 'scripts.php' ?>
 
 </body>
+
 </html>

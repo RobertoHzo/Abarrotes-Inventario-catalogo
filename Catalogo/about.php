@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<?php
-include '../global/ConfigServer.php';
-include '../global/connection_DB.php';
-?>
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,16 +33,17 @@ include '../global/connection_DB.php';
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
+
 <body>
-	
+
 	<!--PreLoader-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div> 
-    <!--PreLoader Ends-->
-	
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+	<!--PreLoader Ends-->
+
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
 		<div class="container">
@@ -63,13 +61,13 @@ include '../global/connection_DB.php';
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li ><a href="index.php">Inicio</a>
+								<li><a href="index.php">Inicio</a>
 								</li>
 								<li><a href="Products.php">Productos</a></li>
 								<li class="current-list-item"><a href="about.php">Sobre Nosotros</a></li>
 								<li><a href="contact.php">Contacto</a></li>
 								<li>
-									
+
 								</li>
 							</ul>
 						</nav>
@@ -82,7 +80,7 @@ include '../global/connection_DB.php';
 	</div>
 	<!-- end header -->
 
-	
+
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg-au">
 		<div class="container">
@@ -160,29 +158,10 @@ include '../global/connection_DB.php';
 
 
 
-	<?php include 'footer.php' ?>
+	<?php include_once 'footer.php' ?>
 
-	
-	<!-- jquery -->
-	<script src="assets/js/jquery-1.11.3.min.js"></script>
-	<!-- bootstrap -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- count down -->
-	<script src="assets/js/jquery.countdown.js"></script>
-	<!-- isotope -->
-	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-	<!-- waypoints -->
-	<script src="assets/js/waypoints.js"></script>
-	<!-- owl carousel -->
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<!-- magnific popup -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
-	<!-- mean menu -->
-	<script src="assets/js/jquery.meanmenu.min.js"></script>
-	<!-- sticker js -->
-	<script src="assets/js/sticker.js"></script>
-	<!-- main js -->
-	<script src="assets/js/main.js"></script>
+	<?php include_once 'scripts.php' ?>
 
 </body>
+
 </html>
