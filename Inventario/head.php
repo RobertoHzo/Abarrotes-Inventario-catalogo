@@ -19,11 +19,8 @@ include_once '../global/connection_DB.php';
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' >
     <!--Datatables -->
-    <!-- <link rel="stylesheet" type="text/css" href="../Inventario/assets/DataTables/datatables.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="../Inventario/assets/DataTables/DataTables-1.11.3/css/jquery.dataTables.css"> 
+    <link rel="stylesheet" type="text/css" href="../Inventario/assets/DataTables/DataTables-1.11.3/css/jquery.dataTables.css">
 
-
-    
     <style>
         .no-boder {
     border:0px solid #f3f3f3;

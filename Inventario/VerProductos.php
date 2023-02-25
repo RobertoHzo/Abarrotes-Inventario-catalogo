@@ -1,20 +1,16 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<?php include '../Inventario/head.php';?>
+<?php include '../Inventario/head.php'; ?>
 
 <body>
     <?php
     $txtID = (isset($_POST['txtID'])) ? $_POST['txtID'] : "";
     $txtQuan = (isset($_POST['txtQuan'])) ? $_POST['txtQuan'] : "";
     $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
-
     $userid = htmlentities($_SESSION['current_user_id'], ENT_QUOTES, 'utf-8');
 
-
     switch ($accion) {
-
         case 'Delete':
-            //look for the image 
             $sentenciaSQL1 = $pdo->prepare("SELECT photo FROM products_tbl WHERE products_tbl.`product_id` = :id");
             $sentenciaSQL1->bindParam(':id', $txtID);
             $sentenciaSQL1->execute();
@@ -24,7 +20,6 @@
                     unlink("../imagenes/img_productos/" . $product["photo"]);
                 }
             }
-
             $sentenciaSQL = $pdo->prepare("DELETE FROM products_tbl WHERE products_tbl.`product_id` = :id");
             $sentenciaSQL->bindParam(':id', $txtID);
             $sentenciaSQL->execute();
@@ -44,7 +39,6 @@
     ?>
     <div id="wrapper">
         <?php include_once '../Inventario/Top-navbar.php'; ?>
-
         <?php
         $query = $pdo->prepare("SELECT products_tbl.*, categories_tbl.name_cat as 'nombre cat', supplier_tbl.name_supp as 'nombre supp',user_tbl.name_user as 'nombre user'
         FROM products_tbl INNER JOIN categories_tbl ON products_tbl.category_id = categories_tbl.category_id
@@ -53,7 +47,6 @@
         $query->execute();
         $RowList = $query->fetchAll(PDO::FETCH_ASSOC);
         ?>
-
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
@@ -178,10 +171,8 @@
 
                                                         <td style="text-align: center;">
                                                             <form method="post">
-                                                                <!--Acciones-->
                                                                 <input type="hidden" name="txtID" value="<?php echo $row['product_id']; ?>">
                                                             </form>
-                                                            <!--Borrar-->
                                                             <button data-toggle="modal" data-target="#DeleSupp<?php echo $row['product_id']; ?>" class="btn btn-danger">
                                                                 <i class="fa fa-eraser"></i>
                                                             </button>
@@ -222,25 +213,25 @@
                 </div>
             </div>
         </div>
-
-        <script src="assets/js/jquery-1.10.2.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.metisMenu.js"></script>
-        <script type="text/javascript" src="../Inventario/assets/DataTables/datatables.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#example').DataTable({
-                    scrollX: true,
-                    "language": {
-                        "lengthMenu": "Muestra _MENU_ registros por pagina",
-                        "zeroRecords": "No se ha encontrdo ningun registro",
-                        "info": "Mostrando página _PAGE_ de _PAGES_",
-                        "infoEmpty": "No hay registros disponibles",
-                        "infoFiltered": "(filtrado de _MAX_ registros totales)"
-                    }
-                });
-            });
-        </script>
-        <script src="assets/js/custom-scripts.js"></script>
 </body>
+<script src="assets/js/jquery-1.10.2.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.metisMenu.js"></script>
+<script type="text/javascript" src="../Inventario/assets/DataTables/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            scrollX: true,
+            "language": {
+                "lengthMenu": "Muestra _MENU_ registros por pagina",
+                "zeroRecords": "No se ha encontrdo ningun registro",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)"
+            }
+        });
+    });
+</script>
+<script src="assets/js/custom-scripts.js"></script>
+
 </html>
