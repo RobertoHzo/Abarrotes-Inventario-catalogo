@@ -32,9 +32,9 @@
             $sentenciaSQL->execute();
             header('Location: VerProductos.php');
             break;
-            // default:
-            //     echo "Invalid option";
-            //     break;
+        default:
+            echo "Invalid option";
+            break;
     }
     ?>
     <div id="wrapper">

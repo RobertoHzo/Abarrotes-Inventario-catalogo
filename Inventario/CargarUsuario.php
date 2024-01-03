@@ -1,12 +1,11 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<?php include_once '../Inventario/head.php';?>
+<?php include_once '../Inventario/head.php'; ?>
 
 
 <body>
     <?php
     //debemos revisar si los input tienen informacion
-    //isset(what we check)-?-if true-:-if false;
     $txtID = (isset($_POST['txtID'])) ? $_POST['txtID'] : "";
     $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : "";
     $typ = (isset($_POST['typ'])) ? $_POST['typ'] : "";
@@ -62,10 +61,13 @@
                 echo "<script>alert('No se puede borrar el usuario. Pruebe que borrar o editar los productos relacionados primero');</script>";
             }
             break;
+        default:
+            # code...
+            break;
     }
     ?>
     <div id="wrapper">
-        <?php include_once '../Inventario/Top-navbar.php';?>
+        <?php include_once '../Inventario/Top-navbar.php'; ?>
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
@@ -132,7 +134,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="example">
+                                    <table class="table table-striped table-bordered table-hover" id="example" aria-describedby="table-description">
                                         <thead>
                                             <tr>
                                                 <th class="col-md-0">#</th>
@@ -223,4 +225,5 @@
     </script>
     <script src="assets/js/custom-scripts.js"></script>
 </body>
+
 </html>

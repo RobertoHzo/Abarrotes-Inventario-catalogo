@@ -58,13 +58,13 @@ if (!isset($_SESSION['current_user_id'])) {
             } catch (PDOException $e) {
                 echo "<script>alert('No se puede borrar el usuario. Pruebe que borrar o editar los productos relacionados primero');</script>";
             }
-
+            break;
+        default:
             break;
     }
     ?>
     <div id="wrapper">
         <?php include_once '../Inventario/Top-navbar.php'; ?>
-
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
@@ -117,7 +117,7 @@ if (!isset($_SESSION['current_user_id'])) {
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="example">
+                                    <table class="table table-striped table-bordered table-hover" id="example" aria-describedby="table-description">
                                         <thead>
                                             <tr>
                                                 <th class="col-md-0">#</th>
@@ -154,7 +154,7 @@ if (!isset($_SESSION['current_user_id'])) {
                                                             <button class="btn btn-danger " data-toggle="modal" data-target="#DeleCat<?php echo $categoria['category_id']; ?>">
                                                                 <i class="fa fa-eraser"></i>
                                                             </button>
-                                                            
+
                                                             <div class="modal fade" id="DeleCat<?php echo $categoria['category_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
@@ -212,4 +212,5 @@ if (!isset($_SESSION['current_user_id'])) {
             });
         </script>
 </body>
+
 </html>

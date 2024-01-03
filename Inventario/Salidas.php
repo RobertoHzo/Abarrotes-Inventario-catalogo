@@ -25,10 +25,10 @@ switch ($accion) {
     case 'Cancel':
         header('Location: Salidas.php');
         break;
-        // default:
-        //     echo "Invalid option";
-        //     break;
-}?>
+    default:
+        echo "Invalid option";
+        break;
+} ?>
 
 <body>
     <div id="wrapper">
@@ -85,7 +85,7 @@ switch ($accion) {
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="example">
+                                    <table class="table table-striped table-bordered table-hover" id="example" aria-describedby="table-description">
                                         <thead>
                                             <tr>
                                                 <th class="col-md-0">#</th>
